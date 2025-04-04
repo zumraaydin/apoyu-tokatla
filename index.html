@@ -33,11 +33,6 @@
       margin-top: 20px;
       color: #990000;
     }
-    #apo {
-      margin-top: 40px;
-      width: 300px;
-      transition: transform 0.1s ease;
-    }
   </style>
 </head>
 <body>
@@ -49,9 +44,6 @@
   <!-- Tokat Sayısı Göstergesi -->
   <div id="count">Tokat Sayısı: 0</div>
 
-  <!-- Apo'nun Görseli -->
-  <img id="apo" src="https://cdn1.ntv.com.tr/gorsel/4yddu6J-GUKlxbpw0OCAag.jpg?width=960&mode=crop&scale=both" alt="Apo">
-
   <!-- Video Dosyasını Eklemek -->
   <video id="apoVideo" width="560" height="315" controls>
     <source src="https://github.com/zumraaydin/apoyu-tokatla/raw/refs/heads/main/apo.mp4" type="video/mp4">
@@ -62,17 +54,11 @@
     let count = 0;
     const button = document.getElementById('tokatButton');
     const counter = document.getElementById('count');
-    const apoImg = document.getElementById('apo');
     const apoVideo = document.getElementById('apoVideo');
 
     button.addEventListener('click', () => {
       count++;
       counter.innerText = `Tokat Sayısı: ${count}`;
-      apoImg.style.transform = 'rotate(-10deg)';
-      setTimeout(() => apoImg.style.transform = 'rotate(10deg)', 100);
-      setTimeout(() => apoImg.style.transform = 'rotate(0deg)', 200);
-
-      // Video'yu oynat
       apoVideo.currentTime = 0;
       apoVideo.play();
     });
