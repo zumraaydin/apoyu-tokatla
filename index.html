@@ -54,10 +54,28 @@
 
   <!-- Video Dosyasını Eklemek -->
   <video id="apoVideo" width="560" height="315" controls>
-    <source src="https://raw.githubusercontent.com/zumraaydin/apoyu-tokatla/main/apo-video.mp4" type="video/mp4">
+    <source src="https://github.com/zumraaydin/apoyu-tokatla/raw/refs/heads/main/apo.mp4" type="video/mp4">
     Tarayıcınız video oynatmayı desteklemiyor.
   </video>
 
   <script>
     let count = 0;
-    const button = document.getElementById('tokat
+    const button = document.getElementById('tokatButton');
+    const counter = document.getElementById('count');
+    const apoImg = document.getElementById('apo');
+    const apoVideo = document.getElementById('apoVideo');
+
+    button.addEventListener('click', () => {
+      count++;
+      counter.innerText = `Tokat Sayısı: ${count}`;
+      apoImg.style.transform = 'rotate(-10deg)';
+      setTimeout(() => apoImg.style.transform = 'rotate(10deg)', 100);
+      setTimeout(() => apoImg.style.transform = 'rotate(0deg)', 200);
+
+      // Video'yu oynat
+      apoVideo.currentTime = 0;
+      apoVideo.play();
+    });
+  </script>
+</body>
+</html>
