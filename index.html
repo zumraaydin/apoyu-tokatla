@@ -54,16 +54,30 @@
   </video>
 
   <script>
-    let count = 0;
+    // LocalStorage'dan sayac değerini al
+    let count = localStorage.getItem('count') ? parseInt(localStorage.getItem('count')) : 0;
+
     const button = document.getElementById('tokatButton');
     const counter = document.getElementById('count');
     const apoVideo = document.getElementById('apoVideo');
 
+    // Sayacı ekranda göster
+    counter.innerText = `Tokat Sayısı: ${count}`;
+
     button.addEventListener('click', () => {
       count++;
       counter.innerText = `Tokat Sayısı: ${count}`;
-      apoVideo.currentTime = 0;
-      apoVideo.play();
+      
+      // LocalStorage'a yeni sayacı kaydet
+      localStorage.setItem('count', count);
+
+      // Video'nun başından başlamasını engelle
+      if (apoVideo.paused) {
+        apoVideo.currentTime = 0;
+        apoVideo.play();
+      } else {
+        apoVideo.play(); // Video duraklatıldıysa devam etmesini sağla
+      }
     });
   </script>
 </body>
