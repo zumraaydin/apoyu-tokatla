@@ -52,15 +52,15 @@
   <!-- Apo'nun Görseli -->
   <img id="apo" src="https://cdn1.ntv.com.tr/gorsel/4yddu6J-GUKlxbpw0OCAag.jpg?width=960&mode=crop&scale=both" alt="Apo">
 
-  <!-- Tokat Sesi -->
-  <audio id="slapSound" src="https://cdn.pixabay.com/download/audio/2023/02/11/audio_d203c7b1f6.mp3?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101711" preload="auto"></audio>
+  <!-- YouTube Videoları -->
+  <iframe id="apoVideo" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <script>
     let count = 0;
     const button = document.getElementById('tokatButton');
     const counter = document.getElementById('count');
     const apoImg = document.getElementById('apo');
-    const slapSound = document.getElementById('slapSound');
+    const apoVideo = document.getElementById('apoVideo');
 
     button.addEventListener('click', () => {
       count++;
@@ -68,18 +68,9 @@
       apoImg.style.transform = 'rotate(-10deg)';
       setTimeout(() => apoImg.style.transform = 'rotate(10deg)', 100);
       setTimeout(() => apoImg.style.transform = 'rotate(0deg)', 200);
-
-      slapSound.currentTime = 0; // Başlangıç noktasına sıfırlama
-      slapSound.play(); // Tokat sesi çalmaya başlar
-
-      // Kontrol: Eğer ses çalmıyorsa, bir uyarı verebiliriz.
-      slapSound.onplay = function() {
-        console.log('Tokat sesi çalıyor');
-      };
-
-      slapSound.onerror = function() {
-        console.log('Ses dosyasını yüklerken bir hata oluştu');
-      };
+      
+      // YouTube videosunu oynat
+      apoVideo.src = "https://www.youtube.com/embed/xYoGWXD-K20?start=43&end=46&autoplay=1";
     });
   </script>
 </body>
