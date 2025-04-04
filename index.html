@@ -53,7 +53,8 @@
   <img id="apo" src="https://cdn1.ntv.com.tr/gorsel/4yddu6J-GUKlxbpw0OCAag.jpg?width=960&mode=crop&scale=both" alt="Apo">
 
   <!-- Tokat Sesi -->
-  <audio id="slapSound" src="<audio id="slapSound" src="https://github.com/zumraaydin/apoyu-tokatla/raw/refs/heads/main/movement-101711.mp3"auto"></audio>
+  <audio id="slapSound" src="https://github.com/zumraaydin/apoyu-tokatla/raw/refs/heads/main/movement-101711.mp3" preload="auto"></audio>
+
   <script>
     let count = 0;
     const button = document.getElementById('tokatButton');
@@ -67,8 +68,8 @@
       apoImg.style.transform = 'rotate(-10deg)';
       setTimeout(() => apoImg.style.transform = 'rotate(10deg)', 100);
       setTimeout(() => apoImg.style.transform = 'rotate(0deg)', 200);
-      slapSound.currentTime = 0;
-      slapSound.play();
+      slapSound.currentTime = 0; // Sesin başa alınıp yeniden çalmasını sağlamak
+      slapSound.play(); // Tokat sesi çalmaya başlar
     });
   </script>
 </body>
