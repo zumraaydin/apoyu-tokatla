@@ -53,7 +53,7 @@
   <img id="apo" src="https://cdn1.ntv.com.tr/gorsel/4yddu6J-GUKlxbpw0OCAag.jpg?width=960&mode=crop&scale=both" alt="Apo">
 
   <!-- Tokat Sesi -->
-  <audio id="slapSound" src="https://github.com/zumraaydin/apoyu-tokatla/raw/refs/heads/main/movement-101711.mp3" preload="auto"></audio>
+  <audio id="slapSound" src="https://cdn.pixabay.com/download/audio/2023/02/11/audio_d203c7b1f6.mp3?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101711" preload="auto"></audio>
 
   <script>
     let count = 0;
@@ -68,8 +68,18 @@
       apoImg.style.transform = 'rotate(-10deg)';
       setTimeout(() => apoImg.style.transform = 'rotate(10deg)', 100);
       setTimeout(() => apoImg.style.transform = 'rotate(0deg)', 200);
-      slapSound.currentTime = 0; // Sesin başa alınıp yeniden çalmasını sağlamak
+
+      slapSound.currentTime = 0; // Başlangıç noktasına sıfırlama
       slapSound.play(); // Tokat sesi çalmaya başlar
+
+      // Kontrol: Eğer ses çalmıyorsa, bir uyarı verebiliriz.
+      slapSound.onplay = function() {
+        console.log('Tokat sesi çalıyor');
+      };
+
+      slapSound.onerror = function() {
+        console.log('Ses dosyasını yüklerken bir hata oluştu');
+      };
     });
   </script>
 </body>
