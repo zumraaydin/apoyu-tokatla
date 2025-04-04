@@ -52,8 +52,11 @@
   <!-- Apo'nun Görseli -->
   <img id="apo" src="https://cdn1.ntv.com.tr/gorsel/4yddu6J-GUKlxbpw0OCAag.jpg?width=960&mode=crop&scale=both" alt="Apo">
 
-  <!-- YouTube Videoları -->
-  <iframe id="apoVideo" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- Video Dosyasını Eklemek -->
+  <video id="apoVideo" width="560" height="315" controls>
+    <source src="https://github.com/zumraaydin/apoyu-tokatla/raw/refs/heads/main/apo...mp4" type="video/mp4">
+    Tarayıcınız video oynatmayı desteklemiyor.
+  </video>
 
   <script>
     let count = 0;
@@ -68,9 +71,10 @@
       apoImg.style.transform = 'rotate(-10deg)';
       setTimeout(() => apoImg.style.transform = 'rotate(10deg)', 100);
       setTimeout(() => apoImg.style.transform = 'rotate(0deg)', 200);
-      
-      // YouTube videosunu oynat
-      apoVideo.src = "https://www.youtube.com/embed/xYoGWXD-K20?start=43&end=46&autoplay=1";
+
+      // Video'yu oynat
+      apoVideo.currentTime = 0;
+      apoVideo.play();
     });
   </script>
 </body>
